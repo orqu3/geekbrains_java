@@ -3,7 +3,7 @@ package ru.geekbrains.java.javaone;
 public class Main {
 
     public static void main(String[] args) {
-        //checkLesson1();
+        checkLesson1();
         checkLesson2();
     }
 
