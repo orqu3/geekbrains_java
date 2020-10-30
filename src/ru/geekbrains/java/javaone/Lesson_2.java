@@ -76,4 +76,23 @@ public class Lesson_2 {
         System.out.println("Min element of array = " + min);
         System.out.println("Max element of array = " + max);
     }
+
+    // 6.**Написать метод,в который передается не пустой одномерный целочисленный массив,метод должен вернуть true,
+    // если в массиве есть место,в котором сумма левой и правой части массива равны.Примеры:checkBalance([2,2,2,1,2,
+    // 2,||10,1]) → true,checkBalance([1,1,1,||2,1]) → true,граница показана символами||,эти символы в массив не входят.
+    public static boolean checkBalance(int[] array) {
+        for (int i = 1; i < array.length - 1; i++) {
+            int rightSum = 0;
+            int leftSum = 0;
+            for (int j = i; j < array.length; j++) {
+                rightSum += array[j];
+            }
+            for (int j = 0; j < i; j++) {
+                leftSum += array[j];
+            }
+            if (rightSum == leftSum)
+                return true;
+        }
+        return false;
+    }
 }

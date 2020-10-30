@@ -3,7 +3,7 @@ package ru.geekbrains.java.javaone;
 public class Main {
 
     public static void main(String[] args) {
-        checkLesson1();
+        //checkLesson1();
         checkLesson2();
     }
 
@@ -32,5 +32,9 @@ public class Main {
         Lesson_2.changeArray();
         Lesson_2.fillArrayDiagonal();
         Lesson_2.findMaxAndMinArrayElementValue();
+        int[] firstArrayForCheckBalance = new int[] {50,0,0,1,1,1};
+        int[] secondArrayForCheckBalance = new int[] {2,2,0,3,0,1};
+        System.out.println(Lesson_2.checkBalance(firstArrayForCheckBalance));
+        System.out.println(Lesson_2.checkBalance(secondArrayForCheckBalance));
     }
 }
