@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         checkLesson1();
+        checkLesson2();
     }
 
     public static void checkLesson1() {
@@ -23,5 +24,17 @@ public class Main {
         System.out.println(Lesson_1.isNegative(-67));
         Lesson_1.hello("Алёна");
         System.out.println(Lesson_1.isLeapYear(2020));
+    }
+
+    public static void checkLesson2() {
+        Lesson_2.fillAndReplaceArrayZeroAndOne();
+        Lesson_2.fillArray();
+        Lesson_2.changeArray();
+        Lesson_2.fillArrayDiagonal();
+        Lesson_2.findMaxAndMinArrayElementValue();
+        int[] firstArrayForCheckBalance = new int[] {50,0,0,1,1,1};
+        int[] secondArrayForCheckBalance = new int[] {2,2,0,3,0,1};
+        System.out.println(Lesson_2.checkBalance(firstArrayForCheckBalance));
+        System.out.println(Lesson_2.checkBalance(secondArrayForCheckBalance));
     }
 }
