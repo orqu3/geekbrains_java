@@ -26,7 +26,7 @@ public class Lesson_2 {
         int[] array = new int[8];
         int number = 0;
         for (int i = 0; i < array.length; i++) {
-            array[i] = array[i] + number;
+            array[i] = number;
             number += 3;
         }
         System.out.println(Arrays.toString(array));
@@ -46,10 +46,12 @@ public class Lesson_2 {
     //    4.Создать квадратный двумерный целочисленный массив(количество строк и столбцов одинаковое),
     //        и с помощью цикла(-ов)заполнить его диагональные элементы единицами;
     public static void fillArrayDiagonal() {
-        int[][] array = new int[4][4];
+        int[][] array = new int[5][5];
         int i, j;
-        for (i = 0; i < array.length; i++)
+        for (i = 0; i < array.length; i++) {
             array[i][i] = 1;
+            array[i][array.length - i - 1] = 1;
+        }
         for (i = 0; i < array.length; i++) {
             for (j = 0; j < array.length; j++)
                 System.out.print(array[i][j] + "  ");
@@ -61,16 +63,12 @@ public class Lesson_2 {
     public static void findMaxAndMinArrayElementValue() {
         int[] array = new int[]{12, 1, 56, 78, 3, 456};
         int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            int value = array[i];
-            if (value > max)
-                max = value;
-        }
         int min = array[0];
         for (int i = 0; i < array.length; i++) {
-            int value = array[i];
-            if (value < min)
-                min = value;
+            if (array[i] > max)
+                max = array[i];
+            if (array[i] < min)
+                min = array[i];
         }
         System.out.println("Array elements = " + Arrays.toString(array));
         System.out.println("Min element of array = " + min);
