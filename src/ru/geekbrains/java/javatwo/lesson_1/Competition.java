@@ -21,7 +21,7 @@ public class Competition {
         participants[2] = new Cat("Tom", 600, 200);
 
         Obstacle[] obstacles = new Obstacle[2];
-        obstacles[0] = new Wall(50);;
+        obstacles[0] = new Wall(50);
         obstacles[1] =  new Track(300);
 
         for (Participant participant : participants) {
