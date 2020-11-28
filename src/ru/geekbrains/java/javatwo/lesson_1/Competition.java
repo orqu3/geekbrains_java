@@ -15,21 +15,14 @@ public class Competition {
 
     public static void main(String[] args) {
 
-        Robot robot = new Robot("Stan", 1000, 100);
-        Human human = new Human("Alice", 300, 10);
-        Cat cat = new Cat("Tom", 600, 200);
-
         Participant[] participants = new Participant[3];
-        participants[0] = robot;
-        participants[1] = human;
-        participants[2] = cat;
-
-        Wall wall = new Wall(50);
-        Track track = new Track(300);
+        participants[0] = new Robot("Stan", 1000, 100);
+        participants[1] = new Human("Alice", 300, 10);
+        participants[2] = new Cat("Tom", 600, 200);
 
         Obstacle[] obstacles = new Obstacle[2];
-        obstacles[0] = wall;
-        obstacles[1] = track;
+        obstacles[0] = new Wall(50);;
+        obstacles[1] =  new Track(300);
 
         for (Participant participant : participants) {
             for (Obstacle obstacle : obstacles) {
