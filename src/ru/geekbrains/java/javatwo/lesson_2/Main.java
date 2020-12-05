@@ -31,7 +31,7 @@ public class Main {
         };
 
         String[][] thirdArrayForCheck = new String[][]{
-                {"5", "O", "7", "1"},
+                {"5", "0", "7", "1"},
                 {"3", "1", "I", "0"},
                 {"9", "2", "5", "6"},
                 {"0", "7", "8", "3"},
@@ -58,12 +58,14 @@ public class Main {
 
         int sum = 0;
 
-        for (String[] row : array) {
-            for (String value : row) {
+        for (int i = 0; i < array.length; i++) {
+            String[] row = array[i];
+            for (int j = 0; j < row.length; j++) {
+                String value = row[j];
                 try {
                     sum += Integer.parseInt(value);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException();
+                    throw new MyArrayDataException(value, i, j);
                 }
             }
         }
