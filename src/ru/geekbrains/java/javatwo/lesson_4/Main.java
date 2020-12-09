@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Main extends Application {
 
-    public static final List<String> USERS = List.of("John", "Alice", "Tom","Boris", "Ann");
+    public static final List<String> USERS = List.of("John", "Alice", "Tom", "Boris", "Ann");
 
     @Override
     public void start(Stage primaryStage) throws Exception {
