@@ -48,7 +48,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         methodOne();
 
         methodTwo();
@@ -70,7 +70,7 @@ public class Main {
         System.out.println("Method one total execution time:" + (endTime - startTime) + " ms.");
     }
 
-    public static void methodTwo() {
+    public static void methodTwo() throws InterruptedException {
         int[] array = new int[10_000_000];
 
         long startTime = System.currentTimeMillis();
@@ -90,8 +90,6 @@ public class Main {
             }
         });
 
-        threadOne.start();
-
         Thread threadTwo = new Thread(() -> {
             Arrays.fill(arrayPartTwo, 1);
 
@@ -101,7 +99,11 @@ public class Main {
             }
         });
 
+        threadOne.start();
         threadTwo.start();
+
+        threadOne.join();
+        threadTwo.join();
 
         System.arraycopy(arrayPartOne, 0, array, 0,  arrayPartOne.length);
         System.arraycopy(arrayPartTwo, 0, array, arrayPartOne.length, arrayPartTwo.length );
