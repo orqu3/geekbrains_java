@@ -57,9 +57,9 @@ public class Main {
     public static void methodOne() {
         int[] array = new int[10_000_000];
 
-        Arrays.fill(array, 1);
-
         long startTime = System.currentTimeMillis();
+
+        Arrays.fill(array, 1);
 
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (array[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
@@ -105,8 +105,8 @@ public class Main {
         threadOne.join();
         threadTwo.join();
 
-        System.arraycopy(arrayPartOne, 0, array, 0,  arrayPartOne.length);
-        System.arraycopy(arrayPartTwo, 0, array, arrayPartOne.length, arrayPartTwo.length );
+        System.arraycopy(arrayPartOne, 0, array, 0, arrayPartOne.length);
+        System.arraycopy(arrayPartTwo, 0, array, arrayPartOne.length, arrayPartTwo.length);
 
         long endTime = System.currentTimeMillis();
 
