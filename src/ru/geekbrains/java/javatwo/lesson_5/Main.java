@@ -61,8 +61,12 @@ public class Main {
 
         Arrays.fill(array, 1);
 
+        int index = 0;
+
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (array[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+            array[i] =
+                    (int) (array[i] * Math.sin(0.2f + index / 5) * Math.cos(0.2f + index / 5) * Math.cos(0.4f + index / 2));
+            index++;
         }
 
         long endTime = System.currentTimeMillis();
@@ -84,18 +88,24 @@ public class Main {
         Thread threadOne = new Thread(() -> {
             Arrays.fill(arrayPartOne, 1);
 
+            int index = 0;
+
             for (int i = 0; i < arrayPartOne.length; i++) {
                 arrayPartOne[i] =
-                        (int) (arrayPartOne[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                        (int) (arrayPartOne[i] * Math.sin(0.2f + index / 5) * Math.cos(0.2f + index / 5) * Math.cos(0.4f + index / 2));
+                index++;
             }
         });
 
         Thread threadTwo = new Thread(() -> {
             Arrays.fill(arrayPartTwo, 1);
 
+            int index = 5_000_000;
+
             for (int i = 0; i < arrayPartTwo.length; i++) {
                 arrayPartTwo[i] =
-                        (int) (arrayPartTwo[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                        (int) (arrayPartTwo[i] * Math.sin(0.2f + index / 5) * Math.cos(0.2f + index / 5) * Math.cos(0.4f + index / 2));
+                index++;
             }
         });
 
