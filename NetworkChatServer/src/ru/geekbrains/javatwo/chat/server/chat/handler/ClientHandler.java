@@ -9,6 +9,8 @@ import ru.geekbrains.javatwo.chat.server.chat.MyServer;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static ru.geekbrains.javatwo.chat.clientserver.Command.*;
 
@@ -48,7 +50,11 @@ public class ClientHandler {
     }
 
     private void authentication() throws IOException {
+
         while (true) {
+
+            closeConnectionOnTimeout();
+
             Command command = readCommand();
             if (command == null) {
                 continue;
@@ -76,6 +82,24 @@ public class ClientHandler {
                 return;
             }
         }
+    }
+
+    private void closeConnectionOnTimeout() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (getNickname() == null) {
+                    try {
+                        closeConnection();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        Timer timer = new Timer("Timer");
+        long delay = 120000;
+        timer.schedule(task, delay);
     }
 
     public void sendCommand(Command command) throws IOException {
@@ -122,7 +146,7 @@ public class ClientHandler {
         }
     }
 
-    private void closeConnection() throws IOException {
+    public void closeConnection() throws IOException {
         myServer.unsubscribe(this);
         clientSocket.close();
     }
