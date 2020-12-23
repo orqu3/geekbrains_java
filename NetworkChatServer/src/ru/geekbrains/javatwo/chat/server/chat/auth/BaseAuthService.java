@@ -14,12 +14,12 @@ public class BaseAuthService implements AuthService {
 
     @Override
     public void start() {
-        System.out.println("Auth service is running");
+        System.out.println("Authentication service is running");
     }
 
     @Override
     public void stop() {
-        System.out.println("Auth service has been stopped");
+        System.out.println("Authentication service has been stopped");
     }
 
     @Override
