@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class AuthController {
 
-    private static final String AUTH_CMD = "/auth";
-
     @FXML
     public TextField loginField;
 
@@ -30,11 +28,10 @@ public class AuthController {
             return;
         }
 
-        String authCommandMessage = String.format("%s %s %s", AUTH_CMD, login, password);
         try {
-            network.sendMessage(authCommandMessage);
+            network.sendAuthMessage(login, password);
         } catch (IOException e) {
-            ClientChat.showNetworkError(e.getMessage(), "Auth error!", null);
+            ClientChat.showNetworkError(e.getMessage(), "Authentication error!", null);
             e.printStackTrace();
         }
     }

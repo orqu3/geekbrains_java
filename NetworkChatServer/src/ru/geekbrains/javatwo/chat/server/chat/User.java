@@ -14,18 +14,6 @@ public class User {
         this.nickname = nickname;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

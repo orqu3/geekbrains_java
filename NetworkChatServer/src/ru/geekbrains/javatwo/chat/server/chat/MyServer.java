@@ -1,5 +1,6 @@
 package ru.geekbrains.javatwo.chat.server.chat;
 
+import ru.geekbrains.javatwo.chat.clientserver.Command;
 import ru.geekbrains.javatwo.chat.server.chat.auth.AuthService;
 import ru.geekbrains.javatwo.chat.server.chat.auth.BaseAuthService;
 import ru.geekbrains.javatwo.chat.server.chat.handler.ClientHandler;
@@ -72,16 +73,33 @@ public class MyServer {
             if (client == sender) {
                 continue;
             }
-            client.sendMessage(message);
+            if (sender == null) {
+                client.sendMessage(message);
+            } else {
+                client.sendMessage(sender.getNickname(), message);
+            }
         }
     }
 
-    public synchronized void subscribe(ClientHandler handler) {
+    public synchronized void subscribe(ClientHandler handler) throws IOException {
         clients.add(handler);
+        notifyClientsUsersListUpdated(clients);
     }
 
-    public synchronized void unsubscribe(ClientHandler handler) {
+    public synchronized void unsubscribe(ClientHandler handler) throws IOException {
         clients.remove(handler);
+        notifyClientsUsersListUpdated(clients);
+    }
+
+    private void notifyClientsUsersListUpdated(List<ClientHandler> clients) throws IOException {
+        List<String> usernames = new ArrayList<>();
+        for (ClientHandler client : clients) {
+            usernames.add(client.getNickname());
+        }
+
+        for (ClientHandler client : clients) {
+            client.sendCommand(Command.updateUsersListCommand(usernames));
+        }
     }
 
     public AuthService getAuthService() {
