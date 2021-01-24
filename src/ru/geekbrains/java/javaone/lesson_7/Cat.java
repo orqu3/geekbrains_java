@@ -15,20 +15,20 @@ public class Cat {
         return name;
     }
 
-    public int getAppetite() {
-        return appetite;
-    }
-
-    public boolean getFullness() {
-        return fullness;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public int getAppetite() {
+        return appetite;
+    }
+
     public void setAppetite(int appetite) {
         this.appetite = appetite;
+    }
+
+    public boolean getFullness() {
+        return fullness;
     }
 
     public void setFullness(boolean fullness) {

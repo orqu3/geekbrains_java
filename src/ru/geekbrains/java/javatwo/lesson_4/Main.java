@@ -15,6 +15,10 @@ public class Main extends Application {
 
     public static final List<String> USERS = List.of("John", "Alice", "Tom", "Boris", "Ann");
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -43,9 +47,5 @@ public class Main extends Application {
             }
         }
         return Screen.getPrimary();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

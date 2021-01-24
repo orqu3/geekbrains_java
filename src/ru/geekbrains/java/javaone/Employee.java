@@ -24,6 +24,15 @@ public class Employee {
     private double salary;
     private int age;
 
+    public Employee(String fullName, String position, String email, String phoneNumber, double salary, int age) {
+        this.fullName = fullName;
+        this.position = position;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.salary = salary;
+        this.age = age;
+    }
+
     public static void main(String[] args) {
         Employee[] employees = new Employee[5];
         employees[0] = new Employee("John Adams", "accountant", "johnA@gmail.com", "07773534455", 4500, 44);
@@ -37,15 +46,6 @@ public class Employee {
                 employee.printFullEmployeeInfo();
             }
         }
-    }
-
-    public Employee(String fullName, String position, String email, String phoneNumber, double salary, int age) {
-        this.fullName = fullName;
-        this.position = position;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.salary = salary;
-        this.age = age;
     }
 
     public int getAge() {

@@ -33,7 +33,7 @@ public class Main {
                 }
             }
 
-            if(!ArrayUtils.contains(array, 4)) {
+            if (!ArrayUtils.contains(array, 4)) {
                 throw new RuntimeException();
             }
         }

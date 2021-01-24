@@ -14,7 +14,7 @@ public class Track implements Obstacle {
 
     @Override
     public boolean passObstacle(Participant participant) {
-        if(participant.run() >= getLength()) {
+        if (participant.run() >= getLength()) {
             System.out.println("Participant ran the distance.");
             return true;
         } else {

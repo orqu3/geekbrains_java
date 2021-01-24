@@ -22,7 +22,7 @@ public class Competition {
 
         Obstacle[] obstacles = new Obstacle[2];
         obstacles[0] = new Wall(50);
-        obstacles[1] =  new Track(300);
+        obstacles[1] = new Track(300);
 
         for (Participant participant : participants) {
             for (Obstacle obstacle : obstacles) {

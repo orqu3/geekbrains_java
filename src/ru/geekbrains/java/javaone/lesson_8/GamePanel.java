@@ -9,22 +9,16 @@ import java.util.Random;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 
-    private static final long serialVersionUID = 1L;
-
     public static final int WIDTH = 400;
     public static final int HEIGHT = 400;
-
+    private static final long serialVersionUID = 1L;
+    private final Random r;
     private Thread thread;
     private boolean running = false;
-
     private BodyPart b;
     private ArrayList<BodyPart> snake;
-
     private Apple apple;
     private ArrayList<Apple> apples;
-
-    private final Random r;
-
     private int xCoor = 10;
     private int yCoor = 10;
     private int size = 5;
